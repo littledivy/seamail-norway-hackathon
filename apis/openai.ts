@@ -9,6 +9,16 @@ export function translateToPirate(message: { to: string; body: string }) {
   });
 }
 
+export function getEmailSubject(message: { to: string; body: string }) {
+  const character = getCharacterKind(message.to);
+  return createMessageText({
+    systemPrompt: `You are a ${character} from the late 1600s. ` +
+      `Provide back an email subject for the following text. ` +
+      `The email subject MUST be less than 100 characters.`,
+    userMessage: message.body,
+  });
+}
+
 export function respondEmail(email: { from: string; body: string }) {
   const character = getCharacterKind(email.from);
   return createMessageText({
@@ -20,7 +30,7 @@ export function respondEmail(email: { from: string; body: string }) {
 
 function getCharacterKind(email: string) {
   return email.toLowerCase().includes("bert")
-    ? "scientologist pirate"
+    ? "scientologist pirate who excessively evangelizes"
     : "pirate";
 }
 
