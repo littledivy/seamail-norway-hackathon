@@ -8,6 +8,19 @@ export function translateToPirate(message: string) {
   });
 }
 
+export interface Email {
+  from: string;
+  body: string;
+}
+
+export function respondEmail(email: Email) {
+  return createMessageText({
+    systemPrompt: `You are a pirate from the late 1600s who reads and responds `
+        + `to emails from the user. You MUST respond like a pirate.`,
+    userMessage: `From: ${email.from}\nBody:\n${email.body}`,
+  });
+}
+
 async function createMessageText(opts: {
   userMessage: string;
   systemPrompt: string;
