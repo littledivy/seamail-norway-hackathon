@@ -1,6 +1,14 @@
 import { Configuration, OpenAIApi } from "openai";
 
-export async function createMessageText(opts: {
+export function translateToPirate(message: string) {
+  return createMessageText({
+    systemPrompt: `You are a pirate from the late 1600s.`
+        + ` You MUST translate the following message to speak like a pirate.`,
+    userMessage: message,
+  });
+}
+
+async function createMessageText(opts: {
   userMessage: string;
   systemPrompt: string;
 }) {
