@@ -12,8 +12,7 @@ export function translateToPirate(message: { to: string; body: string }) {
 export function respondEmail(email: { from: string; body: string }) {
   const character = getCharacterKind(email.from);
   return createMessageText({
-    systemPrompt:
-      `You are a ${character} from the late 1600s who reads and ` +
+    systemPrompt: `You are a ${character} from the late 1600s who reads and ` +
       `responds to emails from the user. You MUST respond like a ${character}.`,
     userMessage: `From: ${email.from}\nBody:\n${email.body}`,
   });
