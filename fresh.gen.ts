@@ -2,15 +2,17 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/api/openai.ts";
-import * as $1 from "./routes/index.tsx";
+import * as $0 from "./routes/api/inbound.ts";
+import * as $1 from "./routes/api/openai.ts";
+import * as $2 from "./routes/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Form.tsx";
 
 const manifest = {
   routes: {
-    "./routes/api/openai.ts": $0,
-    "./routes/index.tsx": $1,
+    "./routes/api/inbound.ts": $0,
+    "./routes/api/openai.ts": $1,
+    "./routes/index.tsx": $2,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
