@@ -5,6 +5,7 @@
 import * as $0 from "./routes/api/inbound.ts";
 import * as $1 from "./routes/api/openai.ts";
 import * as $2 from "./routes/index.tsx";
+import * as $3 from "./routes/message-sent.tsx";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Form.tsx";
 
@@ -13,6 +14,7 @@ const manifest = {
     "./routes/api/inbound.ts": $0,
     "./routes/api/openai.ts": $1,
     "./routes/index.tsx": $2,
+    "./routes/message-sent.tsx": $3,
   },
   islands: {
     "./islands/Counter.tsx": $$0,

@@ -1,28 +1,28 @@
 import { Configuration, OpenAIApi } from "openai";
 
-export function translateToPirate(message: string) {
+export function translateToPirate(message: { to: string; body: string }) {
+  const character = getCharacterKind(message.to);
   return createMessageText({
-    systemPrompt: `You are a pirate from the late 1600s.` +
-      ` You MUST translate the following message to speak like a pirate.`,
-    userMessage: message,
+    systemPrompt: `You are a ${character} from the late 1600s.` +
+      ` You MUST translate the following message to speak like a ${character}.`,
+    userMessage: message.body,
   });
 }
 
-export interface Email {
-  from: string;
-  body: string;
-}
-
-export function respondEmail(email: Email) {
-  const pirateKind = email.from.toLowerCase().includes("bert")
-    ? "scientologist pirate"
-    : "pirate";
+export function respondEmail(email: { from: string; body: string }) {
+  const character = getCharacterKind(email.from);
   return createMessageText({
     systemPrompt:
-      `You are a ${pirateKind} from the late 1600s who reads and responds ` +
-      `to emails from the user. You MUST respond like a pirate.`,
+      `You are a ${character} from the late 1600s who reads and ` +
+      `responds to emails from the user. You MUST respond like a ${character}.`,
     userMessage: `From: ${email.from}\nBody:\n${email.body}`,
   });
+}
+
+function getCharacterKind(email: string) {
+  return email.toLowerCase().includes("bert")
+    ? "scientologist pirate"
+    : "pirate";
 }
 
 async function createMessageText(opts: {
@@ -41,5 +41,5 @@ async function createMessageText(opts: {
       { role: "user", content: opts.userMessage },
     ],
   });
-  return res.data.choices[0].message;
+  return res.data.choices[0].message?.content;
 }
