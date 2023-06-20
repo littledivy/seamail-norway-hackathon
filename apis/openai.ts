@@ -2,8 +2,8 @@ import { Configuration, OpenAIApi } from "openai";
 
 export function translateToPirate(message: string) {
   return createMessageText({
-    systemPrompt: `You are a pirate from the late 1600s.`
-        + ` You MUST translate the following message to speak like a pirate.`,
+    systemPrompt: `You are a pirate from the late 1600s.` +
+      ` You MUST translate the following message to speak like a pirate.`,
     userMessage: message,
   });
 }
@@ -14,9 +14,13 @@ export interface Email {
 }
 
 export function respondEmail(email: Email) {
+  const pirateKind = email.from.toLowerCase().includes("bert")
+    ? "scientologist pirate"
+    : "pirate";
   return createMessageText({
-    systemPrompt: `You are a pirate from the late 1600s who reads and responds `
-        + `to emails from the user. You MUST respond like a pirate.`,
+    systemPrompt:
+      `You are a ${pirateKind} from the late 1600s who reads and responds ` +
+      `to emails from the user. You MUST respond like a pirate.`,
     userMessage: `From: ${email.from}\nBody:\n${email.body}`,
   });
 }

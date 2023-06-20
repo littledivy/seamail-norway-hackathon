@@ -1,9 +1,10 @@
 # Seamail
 
-1. They type an email address to send to.
-2. They type a subject and more information on what the mail should be.
-3. Click send. This will pass the information to open ai and then send that
-   response to the person as an email.
+1. User provides an email address and initial message to send.
+2. The message is translated to pirate and the "to user" receives the translated
+   message as an email.
+3. When the "to user" responds to the email, the system continues responding
+   like a pirate.
 
 ### Usage
 
