@@ -12,9 +12,7 @@ Fair winds and following seas,
 Stormy-eyed Sparrow`;
 
 export async function handler(req: Request) {
-  const data = await req.formData();
-  const emailAddress = getValue(data, "email");
-  const message = getValue(data, "message");
+  const { message, email: emailAddress } = await req.json();
   const pirateMessage = await translateToPirate({
     to: emailAddress,
     body: message,
@@ -43,10 +41,3 @@ export async function handler(req: Request) {
   });
 }
 
-function getValue(formData: FormData, key: string) {
-  const value = formData.get(key);
-  if (value == null) {
-    throw new Error(`Not found form data: ${key}`);
-  }
-  return value.toString();
-}
