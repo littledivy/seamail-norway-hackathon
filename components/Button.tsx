@@ -28,12 +28,12 @@ export function Button(props: JSX.HTMLAttributes<HTMLButtonElement>) {
         </path>
       </svg>
     )
-    : {};
+    : null;
   const text = disabled ? "Sending" : "Send";
   return (
     <div class="flex my-8 items-center justify-center">
       <button
-        type="button"
+        type="submit"
         {...props}
         class="flex items-center rounded-lg bg-green-700 px-4 py-2 text-white"
       >
