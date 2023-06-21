@@ -29,11 +29,6 @@ export async function handler(req: Request) {
     Subject: emailSubject,
   });
 
-  const headers = new Headers();
-  headers.set("location", "/message-sent");
-  return new Response(null, {
-    status: 303,
-    headers,
-  });
+  return Response.json({})
 }
 
