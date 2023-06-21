@@ -33,7 +33,7 @@ export const handler: Handlers = {
     } else {
       await sendSimpleMail({
         From: "ahoy@sea-mail.co",
-        To: emailData.ReplyTo ?? emailData.From,
+        To: getReplyTo(emailData),
         TextBody: text,
         Subject: emailData.Subject,
       });
@@ -44,3 +44,10 @@ export const handler: Handlers = {
     });
   },
 };
+
+function getReplyTo(data: WebhookData) {
+  if (data.ReplyTo != null && data.ReplyTo.trim().length > 0) {
+    return data.ReplyTo;
+  }
+  return data.From;
+}
