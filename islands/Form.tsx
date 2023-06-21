@@ -3,6 +3,7 @@ import { Button } from "../components/Button.tsx";
 
 export default function Submit() {
   const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = async (event) => {
     let x = new FormData(event.target);
@@ -22,11 +23,24 @@ export default function Submit() {
         }),
       });
 
-      const data = await resp.json();
+      if (!resp.ok) {
+        alert("Failed!");
+        console.log(await resp.text());
+        return;
+      } else {
+        setSent(true);
+      }
     } finally {
       setSending(false);
     }
   };
+
+  if (sent) {
+    return <div className="container mx-auto p-8 bg-gray-100 rounded-md max-w-md">
+      <p>Arr matey!</p>
+      <p>Your message has set sail on the high seas of the internet.</p>
+    </div>
+  }
 
   return (
     <form
