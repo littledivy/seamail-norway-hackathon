@@ -29,6 +29,5 @@ export async function handler(req: Request) {
     Subject: emailSubject,
   });
 
-  return Response.json({})
+  return Response.json({});
 }
-

@@ -1,6 +1,7 @@
 # Seamail
 
-Welcome to Sea Mail! Submit an email and message, and our trusty pirate will translate your message into pirate-speak and send it on your behalf. Ahoy!
+Welcome to Sea Mail! Submit an email and message, and our trusty pirate will
+translate your message into pirate-speak and send it on your behalf. Ahoy!
 
 ### Usage
 

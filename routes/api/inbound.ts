@@ -25,7 +25,7 @@ export const handler: Handlers = {
     const text = await respondEmail({
       from: emailData.From,
       body: emailData.TextBody ?? emailData.HtmlBody,
-    })
+    });
 
     if (!text) {
       console.error("Failed to respond to email", emailData);
