@@ -5,6 +5,7 @@ interface WebhookData {
   FromName: string;
   MessageStream: "inbound";
   From: string;
+  ReplyTo: string;
   To: string;
   Cc: string;
   Bcc: string;
@@ -30,7 +31,7 @@ export default async function handler(req: Request) {
 
   await sendSimpleMail({
     From: "ahoy@sea-mail.co",
-    To: emailData.From, // reply to?
+    To: emailData.ReplyTo ?? emailData.From,
     TextBody: text,
     Attachments: [],
     Subject: emailData.Subject,
