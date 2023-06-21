@@ -16,7 +16,10 @@ export async function sendSimpleMail(body: EmailBody) {
       "X-Postmark-Server-Token": Deno.env.get("POSTMARK_SERVER_TOKEN")!,
       "Accept": "application/json",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify({
+      ...body,
+      ReplyTo: "4cb6195adabd74755e2d54d89e2857e0@inbound.postmarkapp.com",
+    }),
   });
 
   if (!response.ok) {
