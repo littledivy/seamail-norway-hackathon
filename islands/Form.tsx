@@ -64,7 +64,7 @@ export default function Submit() {
         </div>
         <div className="flex justify-center">
           <button
-            type="button"
+            type="submit"
             disabled={sending}
             className="p-4 py-2 my-8 bg-blue-500 text-white rounded-md hover:bg-blue-600"
           >
