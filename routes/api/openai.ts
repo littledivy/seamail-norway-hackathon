@@ -28,7 +28,6 @@ export async function handler(req: Request) {
     From: "ahoy@sea-mail.co",
     To: emailAddress,
     TextBody: pirateMessage,
-    Attachments: [],
     Subject: emailSubject,
   });
 

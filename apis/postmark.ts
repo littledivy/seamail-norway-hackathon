@@ -1,21 +1,13 @@
 const POSTMARK_API = "https://api.postmarkapp.com/email";
 
-interface IAttachment {
-  Content: string[];
-  Name: string;
-  ContentType: string;
-  ContentDisposition: string;
-}
-
-interface IBody {
+interface EmailBody {
   From: string;
   To: string;
   Subject: string;
   TextBody: string;
-  Attachments: IAttachment[];
 }
 
-export async function sendSimpleMail(body: IBody) {
+export async function sendSimpleMail(body: EmailBody) {
   console.log("To:", body.To, "\nBody:", body.TextBody);
   const response = await fetch(POSTMARK_API, {
     method: "POST",

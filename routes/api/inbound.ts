@@ -33,7 +33,6 @@ export default async function handler(req: Request) {
     From: "ahoy@sea-mail.co",
     To: emailData.ReplyTo ?? emailData.From,
     TextBody: text,
-    Attachments: [],
     Subject: emailData.Subject,
   });
 }
