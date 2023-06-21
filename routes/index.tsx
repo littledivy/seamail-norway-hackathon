@@ -6,6 +6,7 @@ export default function Home() {
     <div class="bg-blue-200 min-h-screen flex items-center justify-center">
       <Head>
         <title>Sea-Mail</title>
+        <link rel="icon" href="/pirate.webp" type="image/webp" />
       </Head>
       <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div class="mb-4 text-center">

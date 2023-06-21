@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 export function translateToPirate(message: { to: string; body: string }) {
   const character = getCharacterKind(message.to);
   return createMessageText({
-    systemPrompt: `You are a ${character} from the late 1600s.` +
+    systemPrompt: `You are a ${character}.` +
       ` You MUST translate the following message to speak like a ${character}.`,
     userMessage: message.body,
   });
@@ -12,7 +12,7 @@ export function translateToPirate(message: { to: string; body: string }) {
 export function getEmailSubject(message: { to: string; body: string }) {
   const character = getCharacterKind(message.to);
   return createMessageText({
-    systemPrompt: `You are a ${character} from the late 1600s. ` +
+    systemPrompt: `You are a ${character}. ` +
       `Provide back an email subject for the following text. ` +
       `The email subject MUST be less than 100 characters.`,
     userMessage: message.body,
@@ -22,7 +22,7 @@ export function getEmailSubject(message: { to: string; body: string }) {
 export function respondEmail(email: { from: string; body: string }) {
   const character = getCharacterKind(email.from);
   return createMessageText({
-    systemPrompt: `You are a ${character} from the late 1600s who reads and ` +
+    systemPrompt: `You are a ${character} who reads and ` +
       `responds to emails from the user. You MUST respond like a ${character}.`,
     userMessage: `From: ${email.from}\nBody:\n${email.body}`,
   });

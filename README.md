@@ -1,10 +1,6 @@
 # Seamail
 
-1. User provides an email address and initial message to send.
-2. The message is translated to pirate and the "to user" receives the translated
-   message as an email.
-3. When the "to user" responds to the email, the system continues responding
-   like a pirate.
+Welcome to Sea Mail! Submit an email and message, and our trusty pirate will translate your message into pirate-speak and send it on your behalf. Ahoy!
 
 ### Usage
 
