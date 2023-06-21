@@ -30,7 +30,7 @@ export async function handler(req: Request) {
   await sendSimpleMail({
     From: "ahoy@sea-mail.co",
     To: emailAddress,
-    HtmlBody: pirateMessage ?? failureMessage,
+    HtmlBody: pirateMessage,
     Attachments: [],
     Subject: emailSubject,
   });
