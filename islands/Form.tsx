@@ -1,15 +1,11 @@
 import { useState } from "preact/hooks";
-import { Button } from "../components/Button.tsx";
 
 export default function Submit() {
   const [email, setEmail] = useState(null);
   const [message, setMessage] = useState(null);
-  const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setSending(true);
 
     const resp = await fetch("/api/openai", {
       method: "POST",
@@ -22,11 +18,7 @@ export default function Submit() {
       })
     });
 
-
     const data = await resp.json();
-    console.log("handleSubmit response", data);
-
-    setSending(false);
   }
 
   return (
@@ -62,10 +54,13 @@ export default function Submit() {
           </textarea>
         </div>
         <div className="flex justify-center">
-          <Button
-            disabled={sending}
+          <button
+            type="button"
             onClick={(e) => handleSubmit(e)}
-          />
+            className="p-4 py-2 my-8 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          >
+            Send
+          </button>
         </div>
       </div>
     </form>
