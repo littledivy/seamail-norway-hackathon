@@ -11,11 +11,12 @@ interface IBody {
   From: string;
   To: string;
   Subject: string;
-  HtmlBody: string;
+  TextBody: string;
   Attachments: IAttachment[];
 }
 
 export async function sendSimpleMail(body: IBody) {
+  console.log("To:", body.To, "\nBody:", body.TextBody);
   const response = await fetch(POSTMARK_API, {
     method: "POST",
     headers: {

@@ -24,13 +24,10 @@ export async function handler(req: Request) {
     body: pirateMessage,
   }) ?? "Avast Ye, Matey! Ye've Struck Gold with this Message!";
 
-  console.log("Subject:", emailSubject);
-  console.log("Message:", pirateMessage);
-
   await sendSimpleMail({
     From: "ahoy@sea-mail.co",
     To: emailAddress,
-    HtmlBody: pirateMessage,
+    TextBody: pirateMessage,
     Attachments: [],
     Subject: emailSubject,
   });
