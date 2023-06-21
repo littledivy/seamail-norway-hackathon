@@ -19,8 +19,9 @@ interface WebhookData {
 
 export const handler: Handlers = {
   async POST(req: Request, _ctx: HandlerContext) {
+    console.log("Received inbound web hook.");
     const emailData: WebhookData = await req.json();
-    console.log("Received inbound web hook.", emailData);
+    console.log("Data:", emailData);
 
     const text = await respondEmail({
       from: emailData.From,
