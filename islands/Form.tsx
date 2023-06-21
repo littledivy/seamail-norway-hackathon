@@ -30,6 +30,7 @@ export default function Submit() {
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit();
+        return false;
       }}
     >
       <div className="container mx-auto p-8 bg-gray-100 rounded-md max-w-md">
