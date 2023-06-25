@@ -20,6 +20,7 @@ interface WebhookData {
 export const handler: Handlers = {
   async POST(req: Request, _ctx: HandlerContext) {
     console.log("Received inbound web hook.");
+    throw new Error("Disabled");
     const emailData: WebhookData = await req.json();
     console.log("Data:", emailData);
 

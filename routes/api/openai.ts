@@ -12,6 +12,8 @@ Fair winds and following seas,
 Stormy-eyed Sparrow`;
 
 export async function handler(req: Request) {
+  throw new Error("DISABLED");
+
   const { message, email: emailAddress } = await req.json();
   const pirateMessage = await translateToPirate({
     to: emailAddress,

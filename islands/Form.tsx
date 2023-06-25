@@ -36,10 +36,12 @@ export default function Submit() {
   };
 
   if (sent) {
-    return <div className="container mx-auto p-8 bg-gray-100 rounded-md max-w-md">
-      <p>Arr matey!</p>
-      <p>Your message has set sail on the high seas of the internet.</p>
-    </div>
+    return (
+      <div className="container mx-auto p-8 bg-gray-100 rounded-md max-w-md">
+        <p>Arr matey!</p>
+        <p>Your message has set sail on the high seas of the internet.</p>
+      </div>
+    );
   }
 
   return (
